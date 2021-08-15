@@ -6,15 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:regular,italic,700,700italic" rel="stylesheet" />
-    <link
+    <!-- <link
         href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
-        rel="stylesheet" />
-    <title>Junior Developer Quiz</title>
+        rel="stylesheet" /> -->
+    <title>Junior Developer Quiz!</title>
 </head>
 
-<body>
+<header class="quiz-header">
+    <div id="quiz-title">
+        <h1>Web Dev Quiz</h1>
+    </div>
+    <!-- add link to high scores page to this btn -->
+    <div id="hsb-container">
+        <button id="hi-score-btn" class="c-text">High Scores</button>
+    </div>
+    <hr id="header-line">
+</header>
 
+<body>
+    <section id="quiz-intro" class="quiz-intro c-text">
+        <h2 id="quiz-name" class="c-text">Junior Web Developer coding quiz!</h1>
+            <p id="intro-text">This is a short, timed quiz featuring questions an aspiring web developer should be
+                able to
+                answer!</p>
+            <p id="intro-text">There will be 6 questions, which you will have 50 seconds to answer. <br> However, each
+                wrong answer will subtract 5 seconds.</p>
+            <p id="intro-text">Are you ready? Give it your best shot!</p>
+            <button id="start-btn" class="c-text">Start Quiz!</button>
+    </section>
+
+    <section id="questions" class="questions">
+
+    </section>
     <script src="./assets/js/script.js"></script>
 </body>

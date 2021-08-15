@@ -1,0 +1,89 @@
+* {
+  font-family: Noto Sans;
+  /* position: sticky;
+  margin: 0;
+  padding: 0; */
+}
+
+/* atomic CSS classes */
+
+.c-text {
+    text-align: center;
+}
+
+
+
+/* Regular CSS */
+
+/* Header */
+
+.quiz-header {
+    width: 100%;
+    padding: 1rem;
+    display: inline-block;
+}
+
+#quiz-title {
+    display: inline-block;
+}
+
+#quiz-title h1 {
+    font-size: 250%;
+    font-weight: bold;
+    margin: 5px;
+    flex-grow: 1;
+}
+#hsb-container {
+    float: right;
+}
+
+#hi-score-btn {
+    background-color: orange;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    margin: 0.5rem;
+    margin-top: 2px;
+    flex-grow: 2;
+}
+
+#header-line {
+    margin: 5px;
+    padding: 5px;
+    background-color:orange;
+}
+
+/* Homepage */
+.quiz-intro {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
+    /* margin-bottom: 30vh; */
+}
+
+#quiz-name {
+    font-size: 200%;
+    font-weight: bold;
+    display: flex;
+    padding: 1rem;
+}
+
+#intro-text {
+    padding: 15px;
+
+}
+
+#start-btn {
+    background-color: orange;
+    padding: 1rem;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    margin: 1rem;
+}
+
+#start-btn:hover {
+    background-color: white;
+    color: #303030;
+    cursor: pointer;
+}
