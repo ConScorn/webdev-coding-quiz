@@ -3,6 +3,7 @@
   /* position: sticky;
   margin: 0;
   padding: 0; */
+  background-color: #E8E8E8;
 }
 
 /* atomic CSS classes */
@@ -11,6 +12,9 @@
     text-align: center;
 }
 
+.none {
+    display: none;
+}
 
 
 /* Regular CSS */
@@ -47,6 +51,12 @@
     flex-grow: 2;
 }
 
+#hi-score-btn:hover {
+    background-color: white;
+    color: #303030;
+    cursor: pointer;
+}
+
 #header-line {
     margin: 5px;
     padding: 5px;
@@ -60,6 +70,8 @@
     flex-direction: column;
     margin-top: 20vh;
     /* margin-bottom: 30vh; */
+    border: 4px;
+    display: flex;
 }
 
 #quiz-name {
@@ -71,7 +83,7 @@
 
 #intro-text {
     padding: 15px;
-
+    font-size: 120%;
 }
 
 #start-btn {
