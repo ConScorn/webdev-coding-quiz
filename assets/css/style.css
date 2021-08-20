@@ -16,6 +16,9 @@
     display: none;
 }
 
+.flex {
+    display: flex;
+}
 
 /* Regular CSS */
 
@@ -98,4 +101,29 @@
     background-color: white;
     color: #303030;
     cursor: pointer;
+}
+
+.option-btn {
+    background-color: orange;
+    padding: 1rem;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    margin: 1rem;
+}
+
+.option-btn:hover {
+    background-color: white;
+    color: #303030;
+    cursor: pointer;
+}
+
+.questions-page {
+    align-items: center;
+}
+
+.question-box {
+    font-size: 200%;
+    padding: 1rem;
+    align-items: center;
+
 }
