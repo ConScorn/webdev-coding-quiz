@@ -69,10 +69,6 @@ function timerFunc() {
     }, 1000);
 }
 
-function resetTimer() {
-
-}
-
 startButton.addEventListener("click", startGame);
 // optionButton.addEventListener("click", function () {
 //     console.log(this.textContent);
@@ -132,7 +128,7 @@ function gameOver() {
     localStorage.setItem("name", name);
     localStorage.setItem("score", totalScore);
 
-    
+
     timerEl.setAttribute("class", "none");
     questionsPage.setAttribute("class", "none");
     resultsPage.setAttribute("class", "block");
