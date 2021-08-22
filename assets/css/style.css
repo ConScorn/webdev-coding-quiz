@@ -16,8 +16,8 @@
     display: none;
 }
 
-.flex {
-    display: flex;
+.block {
+    display: block;
 }
 
 /* Regular CSS */
@@ -64,6 +64,11 @@
     margin: 5px;
     padding: 5px;
     background-color:orange;
+}
+
+.timer {
+    font-size: 150%;
+    margin: 1rem;
 }
 
 /* Homepage */
@@ -117,13 +122,24 @@
     cursor: pointer;
 }
 
-.questions-page {
-    align-items: center;
-}
-
 .question-box {
     font-size: 200%;
+    text-align: center;
     padding: 1rem;
-    align-items: center;
-
+    margin: 0 auto;
+    width: 100vw;
 }
+
+.options {
+    margin-top: 4rem;
+    width: 100vw;
+    font-size: 150%;
+    text-align: center;
+}
+
+.answer-result {
+    font-size: 150%;
+    text-align: center;
+    margin: 2rem;
+}
+

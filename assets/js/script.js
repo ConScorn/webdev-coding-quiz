@@ -4,6 +4,9 @@ let quizIntro = document.querySelector('#quiz-intro');
 let questionsPage = document.querySelector('#questions-page');
 let questionBox = document.querySelector('#question-box');
 let optionButtons = document.querySelectorAll('.option-btn');
+let answerResult = document.querySelector('#answer-result')
+let resultsPage = document.querySelector('#results-page');
+
 
 let sec = 50;
 let timerEl = document.getElementById('timer');
@@ -13,7 +16,7 @@ let score = 0;
 
 let questions = [
     {
-        question: "Which of the following is NOT a real html tag?",
+        question: "Which of the following is NOT a real HTML tag?",
         options: [" <br> ", " <svg> ", " <hamburger> ", " <div> "],
         answer: " <hamburger> ",
     },
@@ -26,17 +29,33 @@ let questions = [
         question: "What is the newest version of Javascript, as of June 2021?",
         options: ["ES5", "ES6", "ES12", "ES20"],
         answer: "ES12",
-    }
-    //     {
-    //     question: "What is the newest version of Javascript, as of June 2021?",
-    //     options: ["ES5", "ES6", "ES12", "ES20"],
-    //     answer: "ES12",
-    // },
+    },
+        {
+        question: "'col-md-6' and 'p-10' are examples of what?",
+        options: ["Secret Code", "Atomic CSS", "Semantic HTML", "Javascript Methods"],
+        answer: "Atomic CSS",
+    },
+        {
+        question: "Which website is a great resource for all developers alike?",
+        options: ["Amazon", "Shack Overshow", "Stack Overflow", "Yahoo"],
+        answer: "Stack Overflow",
+    },
+        {
+        question: "Which of the following SHOULD NOT come after this expression in CSS: 'display: '",
+        options: ["flex", "block", "inline", "target"],
+        answer: "target",
+    },
+        {
+        question: "The person taking this quiz is...",
+        options: ["The Coolest!", "Pretty Cool.", "They're alright.", "Okay, I guess?"],
+        answer: "The Coolest!",
+    },
 ];
 
 // This function will prepare the first page, upon loading
 function init() {
-     questionsPage.setAttribute("class", "none");
+    questionsPage.setAttribute("class", "none");
+    resultsPage.setAttribute("class", "none");
 }
 
 // timer function
@@ -72,7 +91,7 @@ optionButtons.forEach(optionButton => {
 function startGame() {
     timerFunc();
     quizIntro.setAttribute("class", "none");
-    questionsPage.setAttribute("class", "flex");
+    questionsPage.setAttribute("class", "block");
     showQuestion();
 }
 
@@ -90,21 +109,34 @@ function showQuestion() {
 
 function correctClick() {
     // if clicked option button is correct answer, index + 1, hide question and options, load next question
-
     
     if (answerText == questions[index].answer) {
         score += 10;
         index += 1;
-        if (index > questions.length) {
-            // 
-            // break;
+        answerResult.textContent = "";
+        if (index >= questions.length) {
+            gameOver();
         } else {
             showQuestion();               
         }
     } else {
-        questionBox.textContent = "Incorrect!";
+        answerResult.textContent = "Incorrect! -10 seconds!";
         sec -= 10;
     }
 }
+
+
+function gameOver() {
+    let totalScore = sec + score;
+    let name = window.prompt("Enter your name here to enter the leaderboard:");
+    localStorage.setItem("name", name);
+    localStorage.setItem("score", totalScore);
+
+    
+    timerEl.setAttribute("class", "none");
+    questionsPage.setAttribute("class", "none");
+    resultsPage.setAttribute("class", "block");
+}
+
 
 init();
