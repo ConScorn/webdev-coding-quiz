@@ -18,8 +18,8 @@ See the deployed site: https://conscorn.github.io/webdev-coding-quiz/
 Clone the repository: https://github.com/ConScorn/webdev-coding-quiz
 On the site, simply click the "Start Quiz" Button to get started, or click "High Scores" to see your high scores!
 
-![screenshot](assets/img/screenshot.PNG)
-![screenshot](assets/img/screenshot2.PNG)
+![screenshot](assets/img/screenshot.png)
+![screenshot](assets/img/screenshot2.png)
 
 ## License
 MIT License
