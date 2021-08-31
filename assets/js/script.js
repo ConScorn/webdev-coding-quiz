@@ -1,18 +1,21 @@
 let startButton = document.querySelector('#start-btn');
-let highScoreButton = document.querySelector('hiScoreBtn');
+let highScoreButton = document.querySelector('#hi-score-btn');
 let quizIntro = document.querySelector('#quiz-intro');
 let questionsPage = document.querySelector('#questions-page');
 let questionBox = document.querySelector('#question-box');
 let optionButtons = document.querySelectorAll('.option-btn');
 let answerResult = document.querySelector('#answer-result')
 let resultsPage = document.querySelector('#results-page');
-
+let highScoresList = document.querySelector('.high-scores');
 
 let sec = 50;
 let timerEl = document.getElementById('timer');
 let index = 0;
 let answerText = '';
 let score = 0;
+let totalScore = 0;
+
+startButton.addEventListener("click", startGame);
 
 let questions = [
     {
@@ -58,21 +61,19 @@ function init() {
     resultsPage.setAttribute("class", "none");
 }
 
-// timer function
+// This function sets the timer to count down every second, once the start button is clicked
 function timerFunc() {
     let timer = setInterval(function () {
-        document.getElementById('timer').innerHTML = "Timer: " + sec;
         sec--;
+        document.getElementById('timer').innerHTML = "Timer: " + sec;
+
         if (sec <= 0) {
+            document.getElementById('timer').innerHTML = "Timer: " + sec;
             clearInterval(timer);
+            gameOver();
         }
     }, 1000);
 }
-
-startButton.addEventListener("click", startGame);
-// optionButton.addEventListener("click", function () {
-//     console.log(this.textContent);
-// });
 
 // adding the event listener by looping
 optionButtons.forEach(optionButton => {
@@ -82,6 +83,13 @@ optionButtons.forEach(optionButton => {
    });
 });
 
+highScoreButton.addEventListener('click', function () {
+    timerEl.setAttribute("class", "none");
+    quizIntro.setAttribute("class", "none");
+    questionsPage.setAttribute("class", "none");
+    resultsPage.setAttribute("class", "block");
+}
+);
 
 // This function starts the timer, hides the intro page, and displays the first question
 function startGame() {
@@ -103,17 +111,17 @@ function showQuestion() {
     }
 }
 
+// This function will check if the clicked answer is the correct answer. If so, it will give points and show the next question. If not, the user loses time.
 function correctClick() {
-    // if clicked option button is correct answer, index + 1, hide question and options, load next question
-    
     if (answerText == questions[index].answer) {
         score += 10;
         index += 1;
         answerResult.textContent = "";
         if (index >= questions.length) {
-            gameOver();
+            totalScore = sec + score;
+            sec = 0;
         } else {
-            showQuestion();               
+            showQuestion();
         }
     } else {
         answerResult.textContent = "Incorrect! -10 seconds!";
@@ -121,17 +129,41 @@ function correctClick() {
     }
 }
 
-
-function gameOver() {
-    let totalScore = sec + score;
-    let name = window.prompt("Enter your name here to enter the leaderboard:");
-    localStorage.setItem("name", name);
-    localStorage.setItem("score", totalScore);
-
-
+// This function is called, it will display the highScores page(when the 'High Scores' button is clicked)
+function highScoresPage() {
     timerEl.setAttribute("class", "none");
     questionsPage.setAttribute("class", "none");
     resultsPage.setAttribute("class", "block");
+}
+
+// This function
+function gameOver() {
+    // clearInterval(timer);
+    let name = window.prompt("Enter your name here to enter the leaderboard:");
+    let highScores = [];
+    let content = '';
+    console.log(highScores);
+    highScores.push({ name: name, score: totalScore });
+    console.log(highScores);
+    content = JSON.parse(localStorage.getItem('highScores'));
+    console.log(content);
+    if (content != null) {
+        highScores.push(JSON.parse(localStorage.getItem('highScores')));
+    }
+    console.log(highScores);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    console.log(highScores);
+    timerEl.setAttribute("class", "none");
+    questionsPage.setAttribute("class", "none");
+    resultsPage.setAttribute("class", "block");
+
+    for (i = 0; i < highScores.length; i++) {
+        let listItem = document.createElement("LI");
+        listItem.innerHTML = `${i+1}... ${highScores[i].name} ${highScores[i].score}`;
+        highScoresList.appendChild(listItem);
+    }
+
+
 }
 
 

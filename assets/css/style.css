@@ -143,3 +143,20 @@
     margin: 2rem;
 }
 
+.results-page {
+    text-align: center;
+    align-content: center;
+    width: 100vw;
+}
+
+#hi-score-title {
+    text-align: center;
+    font-size: 200%;
+    padding: 1rem;
+    margin: auto;
+}
+
+.high-scores {
+    text-align: center;
+    font-size: 150%
+}
